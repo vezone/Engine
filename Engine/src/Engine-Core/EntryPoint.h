@@ -12,6 +12,7 @@ int main(int argc, char** argv)
 	auto application = Engine::CreateApplication();
 	application->Run();
 	delete application;
+	return 0;
 }
 
 #endif
