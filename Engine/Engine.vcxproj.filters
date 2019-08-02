@@ -4,6 +4,9 @@
     <Filter Include="Engine-Core">
       <UniqueIdentifier>{11DC7661-7D91-EF56-0686-E92D723AE65A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine-Core\Events">
+      <UniqueIdentifier>{cbc5511f-f8bf-444f-89ea-d2b1896d000f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine-Core\Application.h">
@@ -19,6 +22,18 @@
       <Filter>Engine-Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine.h" />
+    <ClInclude Include="Event.h">
+      <Filter>Engine-Core\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyEvent.h">
+      <Filter>Engine-Core\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseEvents.h">
+      <Filter>Engine-Core\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationEvent.h">
+      <Filter>Engine-Core\Events</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine-Core\Application.cpp">
