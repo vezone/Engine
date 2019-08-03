@@ -7,7 +7,7 @@ int main(int argc, char** argv)
 {
 	Engine::Log::Init();
 	ENGINE_CORE_WARN("Testing client logger!");
-	ENGINE_CLIENT_INFO("2+3 = {0}", 5);
+	ENGINE_INFO("2+3 = {0}", 5);
 
 	auto application = Engine::CreateApplication();
 	application->Run();

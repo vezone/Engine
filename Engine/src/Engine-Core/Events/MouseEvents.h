@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Engine
 {
 	class ENGINE_API MouseMovedEvent : public Event
@@ -34,21 +32,21 @@ namespace Engine
 	class ENGINE_API MouseScrolledEvent : public Event
 	{
 	private:
-		float m_MouseXOffset;
-		float m_MouseYOffset;
+		float m_XOffset;
+		float m_YOffset;
 
 	public:
 
-		MouseScrolledEvent(float mouseXOffset, float mouseYOffset)
-			: m_MouseXOffset(mouseXOffset), m_MouseYOffset(mouseYOffset) { }
+		MouseScrolledEvent(float XOffset, float YOffset)
+			: m_XOffset(XOffset), m_YOffset(YOffset) { }
 
-		inline float GetMouseXOffset() const { return m_MouseXOffset; }
-		inline float GetMouseYOffset() const { return m_MouseYOffset; }
+		inline float GetXOffset() const { return m_XOffset; }
+		inline float GetYOffset() const { return m_YOffset; }
 
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseScrolledEvent: " << GetMouseXOffset() << ", " << GetMouseYOffset();
+			ss << "MouseScrolledEvent: " << GetXOffset() << ", " << GetYOffset();
 			return ss.str();
 		}
 

@@ -2,12 +2,10 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Engine 
 {
 	//WindowCloseed, WindowFocused, WindowUnfocused, WindowResized, WindowMoved
-	class ENGINE_API WindowCloseedEvent : Event
+	class ENGINE_API WindowCloseedEvent : public Event
 	{
 	public:
 		WindowCloseedEvent() {}
@@ -16,7 +14,7 @@ namespace Engine
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class ENGINE_API WindowFocusedEvent : Event
+	class ENGINE_API WindowFocusedEvent : public Event
 	{
 	public:
 		WindowFocusedEvent() {}
@@ -25,7 +23,7 @@ namespace Engine
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class ENGINE_API WindowUnfocusedEvent : Event
+	class ENGINE_API WindowUnfocusedEvent : public Event
 	{
 	public:
 		WindowUnfocusedEvent() {}
@@ -34,7 +32,7 @@ namespace Engine
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class ENGINE_API WindowResizedEvent : Event
+	class ENGINE_API WindowResizedEvent : public Event
 	{
 	public:
 		WindowResizedEvent(unsigned int width, unsigned int height)
@@ -58,7 +56,7 @@ namespace Engine
 		unsigned int m_Height;
 	};
 
-	class ENGINE_API WindowMovedEvent : Event
+	class ENGINE_API WindowMovedEvent : public Event
 	{
 	public:
 		WindowMovedEvent() {}
@@ -68,7 +66,7 @@ namespace Engine
 	};
 
 	//AppTick, AppUpdate, AppRender
-	class ENGINE_API AppTickEvent : Event
+	class ENGINE_API AppTickEvent : public Event
 	{
 	public:
 		AppTickEvent() {}
@@ -77,7 +75,7 @@ namespace Engine
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class ENGINE_API AppUpdateEvent : Event
+	class ENGINE_API AppUpdateEvent : public Event
 	{
 	public:
 		AppUpdateEvent() {}
@@ -86,7 +84,7 @@ namespace Engine
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class ENGINE_API AppRenderEvent : Event
+	class ENGINE_API AppRenderEvent : public Event
 	{
 	public:
 		AppRenderEvent() {} 

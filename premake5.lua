@@ -18,6 +18,9 @@ project "Engine"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin/Intermidiates/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "engine_pch.h"
+	pchsource "Engine/src/engine_pch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -26,6 +29,7 @@ project "Engine"
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include"
 	}
 

@@ -1,9 +1,6 @@
 #pragma once
-
-#include <string>
-#include <functional>
-
-#include "src/Engine-Core/Core.h"
+#include "engine_pch.h"
+#include "Engine-Core/Core.h"
 
 namespace Engine
 {
@@ -31,7 +28,7 @@ namespace Engine
 	};
 
 
-#define EVENT_CLASS_TYPE(event_type) static EventType GetStaticType() { return Event::##event_type; }\
+#define EVENT_CLASS_TYPE(event_type) static EventType GetStaticType() { return EventType::##event_type; }\
 									 virtual EventType GetEventType() const override { return GetStaticType(); }\
 									 virtual const char* GetName() const override { return #event_type; }
 
@@ -63,15 +60,16 @@ namespace Engine
 	class EventDispatcher
 	{
 	private:
-		template <typename T>
-		using EventFn = std::function<bool(T&)>;
 		Event& m_Event;
+		
+		template <typename T>
+		using EventFunction = std::function<bool(T&)>;
 	public:
 		EventDispatcher(Event& event)
 			: m_Event(event) {}
 
 		template <typename T>
-		bool Dispatch(EventFn<T> func)
+		bool Dispatch(EventFunction<T> func)
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
@@ -81,10 +79,5 @@ namespace Engine
 			return false;
 		}
 	};
-
-	inline std::ostream& operator<<(std::ostream& os, const Event& e)
-	{
-		return os << e.ToString();
-	}
 
 }

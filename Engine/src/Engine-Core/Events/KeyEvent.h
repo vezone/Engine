@@ -1,12 +1,10 @@
 #pragma once
 
-#include <sstream>
-
 #include "Event.h"
 
 namespace Engine
 {
-	class ENGINE_API KeyEvent : Event
+	class ENGINE_API KeyEvent : public Event
 	{
 	protected:
 		int m_KeyCode;
@@ -21,6 +19,9 @@ namespace Engine
 
 	class ENGINE_API KeyPressedEvent : public KeyEvent
 	{
+	private:
+		int m_RepeatCount;
+
 	public:
 		KeyPressedEvent(int keyCode, int repeatCount) 
 			: KeyEvent(keyCode), m_RepeatCount(repeatCount) { }
@@ -35,9 +36,6 @@ namespace Engine
 		}
 		
 		EVENT_CLASS_TYPE(KeyPressed)
-
-	private:
-		int m_RepeatCount;
 	};
 
 	class ENGINE_API KeyReleasedEvent : public KeyEvent
