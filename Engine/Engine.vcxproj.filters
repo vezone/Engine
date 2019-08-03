@@ -35,6 +35,8 @@
     </ClInclude>
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\engine_pch.h" />
+    <ClInclude Include="src\Engine-Core\Window.h" />
+    <ClInclude Include="src\Engine-Core\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Engine-Core\Application.cpp">
@@ -44,5 +46,6 @@
       <Filter>Engine-Core</Filter>
     </ClCompile>
     <ClCompile Include="src\engine_pch.cpp" />
+    <ClCompile Include="src\Engine-Core\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

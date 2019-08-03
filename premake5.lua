@@ -10,6 +10,13 @@ workspace "Engine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include dirs
+IncludeDirs = {}
+IncludeDirs["GLFW"] = "Engine/vendor/GLFW/include" 
+
+group "Dependencies"
+	include "Engine/vendor/GLFW"
+
 project "Engine"
 	location "Engine"
 	kind "SharedLib"
@@ -27,10 +34,22 @@ project "Engine"
 		"%{prj.name}/src/**.cpp",
 	}
 
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
+	}
+
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDirs.GLFW}"
+	}
+
+	links 
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
