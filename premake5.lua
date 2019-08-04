@@ -13,9 +13,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include dirs
 IncludeDirs = {}
 IncludeDirs["GLFW"] = "Engine/vendor/GLFW/include" 
+IncludeDirs["Glad"] = "Engine/vendor/Glad/include" 
 
 group "Dependencies"
 	include "Engine/vendor/GLFW"
+	include "Engine/vendor/Glad"
 
 project "Engine"
 	location "Engine"
@@ -43,12 +45,14 @@ project "Engine"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDirs.GLFW}"
+		"%{IncludeDirs.GLFW}",
+		"%{IncludeDirs.Glad}"
 	}
 
 	links 
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -60,7 +64,8 @@ project "Engine"
 		defines 
 		{
 			"ENGINE_PLATFORM_WINDOWS",
-			"ENGINE_BUILD_DLL"
+			"ENGINE_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -133,13 +138,3 @@ project "Sandbox"
 		defines "ENGINE_DIST"
 		buildoptions "/MD"
 		optimize "On"
-
-
-
-
-
-
-
-
-
-
