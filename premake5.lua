@@ -14,10 +14,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDirs = {}
 IncludeDirs["GLFW"] = "Engine/vendor/GLFW/include" 
 IncludeDirs["Glad"] = "Engine/vendor/Glad/include" 
+IncludeDirs["imgui"] = "Engine/vendor/imgui" 
 
 group "Dependencies"
 	include "Engine/vendor/GLFW"
 	include "Engine/vendor/Glad"
+	include "Engine/vendor/imgui"
 
 project "Engine"
 	location "Engine"
@@ -46,13 +48,15 @@ project "Engine"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDirs.GLFW}",
-		"%{IncludeDirs.Glad}"
+		"%{IncludeDirs.Glad}",
+		"%{IncludeDirs.imgui}"
 	}
 
 	links 
 	{
 		"GLFW",
 		"Glad",
+		"imgui",
 		"opengl32.lib"
 	}
 

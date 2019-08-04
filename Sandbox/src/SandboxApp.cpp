@@ -28,6 +28,7 @@ public:
 	{
 		ENGINE_INFO("Sandbox ctor");
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Engine::ImGuiLayer());
 	}
 
 	~Sandbox() 
