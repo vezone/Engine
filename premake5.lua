@@ -71,14 +71,17 @@ project "Engine"
 
 	filter "configurations:Debug"
 		defines "ENGINE_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "ENGINE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "ENGINE_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -110,23 +113,25 @@ project "Sandbox"
 		cppdialect "C++17"
 		staticruntime "On"
 		systemversion "latest"
-
+		
 		defines 
 		{
 			"ENGINE_PLATFORM_WINDOWS"
 		}
 
-
 	filter "configurations:Debug"
 		defines "ENGINE_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "ENGINE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "ENGINE_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 

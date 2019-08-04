@@ -1,6 +1,6 @@
 #pragma once
 #include "engine_pch.h"
-#include "Engine-Core/Core.h"
+#include "Engine/Core.h"
 
 namespace Engine
 {
@@ -37,6 +37,8 @@ namespace Engine
 	class ENGINE_API Event
 	{
 	public:
+		bool Handled = false;
+		
 		virtual EventType GetEventType() const = 0;
 		/*Debug mode only*/
 		virtual const char* GetName() const = 0;
@@ -48,9 +50,6 @@ namespace Engine
 		{
 			return GetCategoryFlags() & eventCategory;
 		}
-
-	protected:
-		bool m_Handled = false;
 
 	private:
 		friend class EventDispatcher;
@@ -73,7 +72,7 @@ namespace Engine
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.m_Handled = func(*(T*)& m_Event);
+				m_Event.Handled = func(*(T*)& m_Event);
 				return true;
 			}
 			return false;

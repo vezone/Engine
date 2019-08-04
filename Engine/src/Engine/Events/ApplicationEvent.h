@@ -5,10 +5,10 @@
 namespace Engine 
 {
 	//WindowCloseed, WindowFocused, WindowUnfocused, WindowResized, WindowMoved
-	class ENGINE_API WindowCloseedEvent : public Event
+	class ENGINE_API WindowClosedEvent : public Event
 	{
 	public:
-		WindowCloseedEvent() {}
+		WindowClosedEvent() {}
 
 		EVENT_CLASS_TYPE(WindowCloseed)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
