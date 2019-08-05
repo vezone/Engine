@@ -14,6 +14,8 @@
 
 #include "Engine/Log.h"
 
+#define BIND_EVENT_FUNCTION(x) std::bind(&x, this, std::placeholders::_1)
+
 #ifdef ENGINE_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

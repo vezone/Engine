@@ -12,7 +12,7 @@ namespace Engine
 		/*App events*/
 		AppTick, AppUpdate, AppRender, 
 		/*Key events*/
-		KeyPressed, KeyReleased,
+		KeyPressed, KeyReleased, KeyTyped,
 		/*Mouse events*/
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};

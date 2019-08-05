@@ -39,7 +39,7 @@ namespace Engine
 			: m_Width(width), m_Height(height) {}
 
 		inline unsigned int GetWidth()  { return m_Width;  }
-		inline unsigned int GetHeigth() { return m_Height; }
+		inline unsigned int GetHeight() { return m_Height; }
 
 		std::string ToString() const override
 		{

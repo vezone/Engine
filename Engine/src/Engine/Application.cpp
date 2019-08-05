@@ -6,8 +6,6 @@
 
 namespace Engine {
 
-#define BIND_EVENT_FUNCTION(x) std::bind(&x, this, std::placeholders::_1)
-
 	Application* Application::s_Instance = nullptr;
 
 	Application::Application()
