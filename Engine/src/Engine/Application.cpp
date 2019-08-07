@@ -1,6 +1,7 @@
 #include "engine_pch.h"
 
 #include "Application.h"
+#include "Input.h"
 
 #include <Glad/glad.h>
 
@@ -10,7 +11,8 @@ namespace Engine {
 
 	Application::Application()
 	{
-		ENGINE_CORE_ASSERT(s_Instance, "Applciation already exists!");
+		//NOTE: for now
+		ENGINE_CORE_ASSERT(s_Instance == NULL, "Applciation already exists!");
 		s_Instance = this;
 		m_Running = true;
 		m_Window = std::unique_ptr<Window>(Window::Create());
@@ -65,6 +67,12 @@ namespace Engine {
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 			
+			auto [x, y] = Input::GetMousePosition();
+			ENGINE_CORE_TRACE("{0}, {1}", x, y);
+
+			if (Input::IsKeyPressed(70))
+				ENGINE_CORE_TRACE("F pressed");
+
 			m_Window->OnUpdate();
 		}
 	}
